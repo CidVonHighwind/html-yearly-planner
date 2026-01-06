@@ -29,19 +29,8 @@ WEEKDAY_NAMES = [
     "SUNDAY",
 ]
 
-# Weekday names starting with Sunday (for monthly pages)
-WEEKDAY_NAMES_SUNDAY_START = [
-    "SUNDAY",
-    "MONDAY",
-    "TUESDAY",
-    "WEDNESDAY",
-    "THURSDAY",
-    "FRIDAY",
-    "SATURDAY",
-]
-
-# Weekday abbreviations (for year overview)
-WEEKDAY_ABBR = ["S", "M", "T", "W", "T", "F", "S"]
+# Using single-letter abbrevs to preserve compact layout
+WEEKDAY_ABBR = ["M", "T", "W", "T", "F", "S", "S"]
 
 # Page layout constants
 MONTHLY_NOTES_LINES = 20  # Number of lines in monthly notes section

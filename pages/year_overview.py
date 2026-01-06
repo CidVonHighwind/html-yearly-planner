@@ -38,7 +38,7 @@ def _generate_year_calendar_html(year: int) -> str:
 
         # Weekday headers with week column
         month_html += '    <div class="calendar-header">\n'
-        month_html += '      <div class="week-col">W</div>\n'
+        month_html += '      <div class="week-col"></div>\n'
         for day in WEEKDAY_ABBR:
             month_html += f"      <div>{day}</div>\n"
         month_html += "    </div>\n"

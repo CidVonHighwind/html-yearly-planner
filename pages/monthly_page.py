@@ -4,7 +4,7 @@ Monthly page generator with daily blocks and notes section
 
 import calendar
 import datetime
-from constants import MONTH_NAMES, WEEKDAY_NAMES_SUNDAY_START, MONTHLY_NOTES_LINES
+from constants import MONTH_NAMES, WEEKDAY_NAMES, MONTHLY_NOTES_LINES
 
 
 def generate_monthly_page(year: int, month_num: int) -> str:
@@ -14,7 +14,7 @@ def generate_monthly_page(year: int, month_num: int) -> str:
 
     # Build header row with weekday names (no WEEK header)
     header_html = '<tr class="header-row"><th class="week-header"></th>'
-    for day_name in WEEKDAY_NAMES_SUNDAY_START:
+    for day_name in WEEKDAY_NAMES:
         header_html += f'<th class="weekday-header">{day_name}</th>'
     header_html += "</tr>"
 
