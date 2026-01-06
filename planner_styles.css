@@ -1,0 +1,418 @@
+body {
+    font-family: 'Georgia', serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #f0f0f0;
+}
+
+.page {
+    page-break-after: always;
+    /* Kindle Scribe optimized: 6.2 x 8.3 inches */
+    width: 6.2in;
+    height: 8.3in;
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0 auto 20px auto;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Title Page */
+.title-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+.title-page h1 {
+    font-size: 64pt;
+    margin: 0;
+    font-weight: normal;
+    letter-spacing: 6px;
+}
+
+.title-page h2 {
+    font-size: 28pt;
+    margin: 20px 0;
+    font-weight: 300;
+    letter-spacing: 4px;
+}
+
+.title-page .divider {
+    width: 200px;
+    height: 2px;
+    background-color: #333;
+    margin: 30px 0;
+}
+
+/* Year Overview */
+.year-overview {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    padding: 12px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.year-overview h2 {
+    text-align: center;
+    font-size: 28pt;
+    margin: 0 0 8px 0;
+    font-weight: normal;
+    letter-spacing: 2px;
+}
+
+.months-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 0;
+    flex: 1;
+    /* max-height: calc(100%); */
+}
+
+.month-box {
+    border: 1px solid #333;
+    border-bottom: 0;
+    border-right: 0;
+    padding: 3px;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.month-box:nth-child(3n) {
+    border-right: 1px solid #333;
+}
+
+.month-box:nth-child(n+10) {
+    border-bottom: 1px solid #333;
+}
+
+.month-box h3 {
+    text-align: center;
+    font-size: 13pt;
+    margin: 0 0 4px 0;
+    font-weight: normal;
+    letter-spacing: 0.5px;
+}
+
+.month-box h3 a {
+    color: #333;
+    text-decoration: none;
+}
+
+.month-box h3 a:hover {
+    text-decoration: underline;
+    color: #0066cc;
+}
+
+.calendar {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+.calendar-header {
+    display: grid;
+    grid-template-columns: 20px repeat(7, 1fr);
+    text-align: center;
+    font-weight: bold;
+    font-size: 11pt;
+    margin-bottom: 3px;
+}
+
+.calendar-header .week-col {
+    font-size: 10pt;
+}
+
+.calendar-days {
+    display: grid;
+    grid-template-columns: 20px repeat(7, 1fr);
+    gap: 1px 0;
+    flex: 1;
+    align-content: stretch;
+    grid-auto-rows: 1fr;
+}
+
+.calendar-week-row {
+    display: contents;
+}
+
+.week-num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9pt;
+    font-weight: bold;
+    color: #666;
+}
+
+.day {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11pt;
+    border: none;
+    min-height: 0;
+}
+
+.day.empty {
+    border: none;
+}
+
+/* Monthly Pages */
+.monthly-page {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+.year-link {
+    text-align: center;
+    margin-bottom: 6px;
+}
+
+.year-link a {
+    color: #666;
+    text-decoration: none;
+    font-size: 11pt;
+    letter-spacing: 1px;
+}
+
+.year-link a:hover {
+    text-decoration: underline;
+    color: #0066cc;
+}
+
+.month-title {
+    text-align: center;
+    font-size: 20pt;
+    margin: 0 0 10px 0;
+    font-weight: normal;
+    letter-spacing: 2px;
+}
+
+.days-grid {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 8px;
+    table-layout: fixed;
+}
+
+.days-grid tr.header-row {
+    height: 0.2in;
+}
+
+.days-grid tr.data-row {
+    height: 0.7in;
+}
+
+.week-header {
+    width: 15px;
+    padding: 1px;
+}
+
+.weekday-header {
+    font-size: 8pt;
+    font-weight: normal;
+    text-align: center;
+    padding: 1px;
+    letter-spacing: 0.5px;
+}
+
+.week-number {
+    text-align: center;
+    vertical-align: middle;
+    width: 20px;
+    max-width: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.week-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-90deg);
+    white-space: nowrap;
+    font-size: 7pt;
+    letter-spacing: 0.3px;
+    width: max-content;
+}
+
+.day-cell {
+    border: 1px solid #333;
+    vertical-align: top;
+    padding: 3px;
+    position: relative;
+    width: 14.28%;
+}
+
+.day-cell.empty {
+    border: 1px solid #333;
+    background-color: transparent;
+}
+
+.day-number {
+    font-size: 9pt;
+    font-weight: normal;
+}
+
+.notes-section {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+}
+
+.notes-table {
+    width: 100%;
+    border-collapse: collapse;
+    flex: 1;
+}
+
+.notes-line-row {
+    height: 18px;
+}
+
+.notes-line-cell {
+    border-bottom: 1px solid #ccc;
+    padding: 0;
+}
+
+.notes-section h3 {
+    margin: 0 0 0 0;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #333;
+    font-size: 10pt;
+    font-weight: normal;
+    letter-spacing: 1px;
+    flex-shrink: 0;
+}
+
+/* Weekly Pages */
+.weekly-page {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+.week-header-section {
+    text-align: center;
+    margin-bottom: 8px;
+    flex-shrink: 0;
+}
+
+.week-title {
+    font-size: 20pt;
+    margin: 3px 0;
+    font-weight: normal;
+    letter-spacing: 2px;
+}
+
+.week-date-range {
+    font-size: 9pt;
+    color: #666;
+    margin-top: 3px;
+}
+
+.week-table {
+    width: 100%;
+    border-collapse: collapse;
+    flex: 1;
+}
+
+.week-col-header {
+    padding: 4px;
+    text-align: left;
+    font-size: 8pt;
+    font-weight: normal;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #333;
+}
+
+.week-spacer {
+    border-bottom: 2px solid #333;
+}
+
+.week-line-row {
+    height: 15px;
+}
+
+.week-day-cell {
+    border-bottom: 1px solid #ccc;
+    padding: 2px 4px;
+    vertical-align: top;
+}
+
+.week-spacer-cell {
+    border-bottom: none;
+}
+
+.week-notes-cell {
+    border-bottom: 1px solid #ccc;
+    padding: 2px 4px;
+    vertical-align: top;
+}
+
+.week-day-first {
+    font-size: 6pt;
+    color: #333;
+    padding: 0;
+    vertical-align: bottom;
+}
+
+.week-day-label-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    color: #333;
+    background-color: #e0e0e0;
+    height: 75%;
+    align-items: flex-end;
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+
+.week-day-name-left {
+    font-weight: bold;
+    margin-left: 3px;
+}
+
+.week-day-num-right {
+    font-weight: bold;
+    margin-right: 3px;
+}
+
+/* Links in week numbers */
+.week-num a,
+.week-text a,
+.week-date-range a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.week-num a:hover,
+.week-text a:hover,
+.week-date-range a:hover {
+    text-decoration: underline;
+}
